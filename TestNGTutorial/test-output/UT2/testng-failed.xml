@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [UT2]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="UT2_login page2(failed)">
+    <parameter name="URL" value="google.com"/>
+    <classes>
+      <class name="test.Day1">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="Day1_f5_Linux"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="Day1_f1"/>
+          <include name="Day1_f4_dataProvider"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- test.Day1 -->
+    </classes>
+  </test> <!-- UT2_login page2(failed) -->
+</suite> <!-- Failed suite [UT2] -->

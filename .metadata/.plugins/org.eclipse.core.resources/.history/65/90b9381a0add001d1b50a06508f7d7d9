@@ -1,0 +1,104 @@
+/**
+ * 
+ */
+package test;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+
+public class Day1 {
+	@BeforeMethod
+	public void beforeMethod() {
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+	}
+
+	@BeforeClass
+	public void beforeClass() {
+	}
+
+	@AfterClass
+	public void afterClass() {
+	}
+
+//	@BeforeTest
+//	public void beforeTest() {
+//		System.out.println("@BeforeTest Day1...");
+//	}
+
+//	@AfterTest
+//	public void afterTest() {
+//		System.out.println("@AfterTest Day1...");
+//	}
+
+//	@BeforeSuite
+//	public void beforeSuite() {
+//		System.out.println("@BeforeSuite Day1.....");
+//	}
+//
+//	@AfterSuite
+//	public void afterSuite() {
+//		System.out.println("@AfterSuite Day1.....");
+//	}
+//	@Test
+//	@Parameters ({"URL"}) 
+//	public void Day1_f1(String URL) {
+//		// TODO Auto-generated method stub
+//		System.out.println("Day1_f1"); 
+//		System.out.println(URL);
+//	}
+//
+//	@Test(groups = {"group_Day2"}) 
+//	public void Day1_f2() {
+//		// TODO Auto-generated method stub
+//		System.out.println("Day1_f2 group_Day2"); 
+//	}
+//
+//	@Test(groups = {"group_Day2"})
+//	public void Day1_f3_mobile() {
+//		// TODO Auto-generated method stub
+//		System.out.println("Day1_f3_mobile group_Day2"); 
+//	}
+//
+//	@Test  (dependsOnMethods = {"Day1_f1"} )
+//	public void Day1_f5_Linux() {
+//		// TODO Auto-generated method stub
+//		System.out.println("Day1_f5_Linux"); 
+//	}
+//	
+	@Test(dataProvider = "getData")
+	public void Day1_f4_dataProvider(String user, String pw) {
+		// TODO Auto-generated method stub
+		System.out.println("Day1_f4_dataProvider");
+		System.out.println(user);
+		System.out.println(pw);
+	}
+
+	@DataProvider
+	public Object[][] getData() {
+		Object[][] data = new Object[3][2];
+		// 1st
+		data[0][0] = "user1";
+		data[0][1] = "pw1";
+		data[1][0] = "user2";
+		data[1][1] = "pw2";
+		data[2][0] = "user3";
+		data[2][1] = "pw3";
+		return data;
+
+	}
+
+}

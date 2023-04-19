@@ -1,0 +1,69 @@
+package rahulshettyacademy;
+
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.stream.Stream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class StandAloneTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+//		ChromeDriver driver = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver(options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://rahulshettyacademy.com/client");
+		driver.manage().window().maximize();
+
+		// login step
+		driver.findElement(By.id("userEmail")).sendKeys("testting1kp@gmail.com");
+		driver.findElement(By.id("userPassword")).sendKeys("@Az1234567");
+		driver.findElement(By.id("login")).click();
+		// explicit wait
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".mb-3")));
+
+		String buy_pr = "ADIDAS ORIGINAL";
+		// get list all products
+		List<WebElement> products = driver.findElements(By.xpath("//div[contains(@class,'mb-3')]"));
+		WebElement prod = products.stream()
+				.filter(product -> product.findElement(By.cssSelector("b")).getText().equals(buy_pr)).findFirst()
+				.orElse(null);
+		prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
+//		WebElement ng = driver.findElement(By.cssSelector(".ng-animating"));
+		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
+		driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
+
+		// click all button add-to-cart
+//		driver.findElements(By.xpath("//button[text()=' Add To Cart']")).forEach(a -> {
+//			try {
+//				Thread.sleep(3000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			a.click();});
+
+		List<WebElement> cart_pr = driver.findElements(By.xpath("//*[@class='cartSection']/h3"));
+		Assert.assertTrue(cart_pr.stream().anyMatch(a -> a.getText().equalsIgnoreCase(buy_pr)));
+//		driver.quit();
+	}
+
+}

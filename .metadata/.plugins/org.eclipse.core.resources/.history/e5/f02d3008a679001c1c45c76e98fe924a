@@ -1,0 +1,32 @@
+package mypr;
+
+import java.util.Scanner;
+
+public class Mypr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		String myText = "tesst111@gmail.com,anh.huynh06@digilo.co.jp,manhcuong3010a5@gmail.com,anh03@digilo.co.jp,iuchi.shinichi2@karada-portal.com,abc@yahoo.co.jp,inu.mojyamojya@gmail.com,mail999@gmail.com,duocpv97@gmail.com,quyenvm@icloud.com,tesst18881@gmail.com,quyenvu1219@gmail.com,anh.huynh05@digilo.co.jp,anh.huynh02@digilo.co.jp,iuchi.shinichi1@karada-portal.com,quyenvu12191@gmail.com,tesst121@gmail.com,anh02@digilo.co.jp,iuchi.shinichi@karada-portal.com,kim1111@gmail.com,ynai-mail@digilo.co.jp,email222@gmail.com,dotientuan8212@gmail.com,anh.huynh03@digilo.co.jp,x8x1-demo0001@yahoo.co.jp";
+		Scanner sc= new Scanner(System.in);
+		String[] readData = new String[100];
+		while(true){
+			System.out.println("input text here:");
+//			int n = 0;
+			String myText = sc.nextLine();
+//			for (int i=0; i < n+1; i++) {
+//				System.out.println(myText);
+//			}
+			if (myText == "1"){
+				break;
+			}
+		}
+//		String[] result = myText.split("\\r\\n|\\n|\\r");
+//		for (String a : result) {
+//			System.out.println(a);
+//		}
+		for (int i=0; i< readData.length; i++) {
+			System.out.println(readData[i]);
+		}
+	}
+
+}

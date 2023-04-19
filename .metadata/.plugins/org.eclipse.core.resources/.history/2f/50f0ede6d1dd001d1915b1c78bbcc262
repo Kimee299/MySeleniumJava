@@ -1,0 +1,42 @@
+package rahulshettyacademy;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.stream.Stream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class StandAloneTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+//		ChromeDriver driver = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver(options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://rahulshettyacademy.com/client");
+
+		// login step
+		driver.findElement(By.id("userEmail")).sendKeys("testting1kp@gmail.com");
+		driver.findElement(By.id("userPassword")).sendKeys("@Az1234567");
+		driver.findElement(By.id("login")).click();
+
+		// get list all products
+		List<WebElement> products = driver.findElements(By.xpath("//div[contains(@class,'mb-3')]"));
+		WebElement prod = products.stream()
+				.filter(product -> product.findElement(By.cssSelector("b")).getText().equals("ZARA COAT 3"))
+				.findFirst().orElse(null);
+		System.out.println(prod.getText());
+
+//		driver.quit();
+	}
+
+}

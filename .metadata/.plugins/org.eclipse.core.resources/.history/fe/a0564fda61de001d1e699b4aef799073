@@ -1,0 +1,39 @@
+package rahulshettyacademy.pagepbjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import AbstractComponents.AbstractComponent;
+
+public class ProductCatalogue extends AbstractComponent{
+	// Constructor
+	WebDriver driver;
+
+	public ProductCatalogue(WebDriver driver) {
+		super(driver);
+		// initialization
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+
+	}
+
+//	WebElement mail = driver.findElement(By.id("userEmail"));
+//	WebElement pw = driver.findElement(By.id("userPassword"));
+
+	// pageFactory
+//	@FindBy(css = ".mb-3")
+	List<WebElement> prods;
+	
+	By productsBy = By.cssSelector(".mb-3");
+	
+	public List<WebElement> getProductList() {
+		waitForElToAppear(productsBy);
+		
+		return prods;
+	}
+}

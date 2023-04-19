@@ -1,0 +1,56 @@
+package rahulshettyacademy.pagepbjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.locators.RelativeLocator;
+import org.openqa.selenium.support.ui.Select;
+
+import AbstractComponents.AbstractComponent;
+
+public class OrderPage extends AbstractComponent {
+	WebDriver driver;
+
+	public OrderPage(WebDriver driver) {
+		super(driver);
+		// initialization
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy (xpath="//input[@placeholder=\"Select Country\"]")
+	WebElement country;
+	
+	@FindBy (xpath="//input[@value='4542 9931 9292 2293']")
+	WebElement cardNo;
+	
+	@FindBy (xpath="//div[@class='payment__cc']//div[2]//input[1]")
+	WebElement cvv;
+	
+	@FindBy (xpath="//input[@type='text'])[3]")
+	WebElement cardName;
+	
+	@FindBy (xpath="(//select[@class='input ddl'])[1]")
+	WebElement cardYear;
+	
+	WebElement cardDate = driver.findElement(RelativeLocator.with(By.tagName("select")).near(cardYear));
+
+	// input info in order page
+	public void inputInfo() {
+		Actions a = new Actions(driver);
+		country.sendKeys("Vietnam");
+		cardNo.clear();
+		cardNo.sendKeys("1234 5678 12345 5678");
+		cvv.sendKeys("242");
+		cardName.sendKeys("test name");
+
+		Select optYear = new Select(cardYear);
+		optYear.selectByVisibleText("12");
+
+		Select optDate = new Select(cardDate);
+		optDate.selectByVisibleText("31");
+	}
+}

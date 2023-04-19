@@ -1,0 +1,31 @@
+package basicweb;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class CountLinks {
+
+	public static void main(String[] args) {
+		// init
+		System.setProperty("webdriver.chrome.driver", "E:\\sourcecode\\drivers\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+
+		// do action
+		WebElement footer = driver.findElement(By.id("gf-BIG"));
+		List<WebElement> pr_links = footer.findElements(By.cssSelector("a[href='#']"));
+//		System.out.println(links.size());
+		for(int i=0; i<pr_links.size();i++) {
+			System.out.print(i+1 +": ");
+			System.out.println(pr_links.get(i).getText());
+		}
+	
+	}
+
+}

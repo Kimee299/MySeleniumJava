@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-04-18T11:12:45 ICT" name="test input" finished-at="2023-04-18T11:12:45 ICT" duration-ms="64">
+    <groups>
+      <group name="group_Day2">
+        <method signature="Day2.Day2_f1()[pri:0, instance:test.Day2@6c130c45]" name="Day2_f1" class="test.Day2"/>
+        <method signature="Day2.Day2_f2()[pri:0, instance:test.Day2@6c130c45]" name="Day2_f2" class="test.Day2"/>
+      </group> <!-- group_Day2 -->
+    </groups>
+    <test started-at="2023-04-18T11:12:45 ICT" name="Test" finished-at="2023-04-18T11:12:45 ICT" duration-ms="64">
+      <class name="test.Day1">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="beforeClass" finished-at="2023-04-18T11:12:45 ICT" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="beforeMethod" finished-at="2023-04-18T11:12:45 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Day1_f4_dataProvider(java.lang.String,java.lang.String)[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="Day1_f4_dataProvider" data-provider="getData" finished-at="2023-04-18T11:12:45 ICT" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pw1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Day1_f4_dataProvider -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="afterMethod" finished-at="2023-04-18T11:12:45 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="beforeMethod" finished-at="2023-04-18T11:12:45 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Day1_f4_dataProvider(java.lang.String,java.lang.String)[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="Day1_f4_dataProvider" data-provider="getData" finished-at="2023-04-18T11:12:45 ICT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pw2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Day1_f4_dataProvider -->
+        <test-method signature="Day1_f4_dataProvider(java.lang.String,java.lang.String)[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="Day1_f4_dataProvider" data-provider="getData" finished-at="2023-04-18T11:12:45 ICT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pw3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Day1_f4_dataProvider -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="beforeMethod" finished-at="2023-04-18T11:12:45 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="afterMethod" finished-at="2023-04-18T11:12:45 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="afterMethod" finished-at="2023-04-18T11:12:45 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:test.Day1@49912c99]" started-at="2023-04-18T11:12:45 ICT" name="afterClass" finished-at="2023-04-18T11:12:45 ICT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- test.Day1 -->
+      <class name="test.Day2">
+        <test-method signature="Day2_f1()[pri:0, instance:test.Day2@6c130c45]" started-at="2023-04-18T11:12:45 ICT" name="Day2_f1" finished-at="2023-04-18T11:12:45 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Day2_f1 -->
+        <test-method signature="Day2_f2()[pri:0, instance:test.Day2@6c130c45]" started-at="2023-04-18T11:12:45 ICT" name="Day2_f2" finished-at="2023-04-18T11:12:45 ICT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Day2_f2 -->
+      </class> <!-- test.Day2 -->
+    </test> <!-- Test -->
+  </suite> <!-- test input -->
+</testng-results>

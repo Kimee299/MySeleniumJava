@@ -1,0 +1,31 @@
+package basicweb;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+
+public class FrameTest {
+
+	public static void main(String[] args) {
+		// init
+		System.setProperty("webdriver.chrome.driver", "E:\\sourcecode\\drivers\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
+		driver.get("https://jqueryui.com/droppable/");
+
+		//do action
+		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='demo-frame']")));
+		WebElement drap = driver.findElement(By.id("draggable"));
+		WebElement drop  = driver.findElement(By.id("droppable"));
+		drap.click();
+		Actions a = new Actions(driver);
+		a.dragAndDrop(drap, drop).build().perform();
+		//System.out.println(drop.getText());
+		Assert.assertEquals(drop.getText(), "Dropped!");
+	}
+
+}

@@ -1,0 +1,31 @@
+package basicweb;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.locators.RelativeLocator;
+public class RelativeLocation {
+
+	public static void main(String[] args) {
+		// init
+		System.setProperty("webdriver.chrome.driver", "E:\\sourcecode\\drivers\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		ChromeDriver driver = new ChromeDriver(options);
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		// relative location
+//		driver.get("https://vi-vn.facebook.com/");
+//		WebElement email = driver.findElement(By.xpath("//input[@id=\"email\"]"));
+//		driver.findElement(RelativeLocator.with(By.tagName("input")).below(email)).sendKeys("12345");
+		
+		//invoke multi windows/tabs
+		driver.switchTo().newWindow(WindowType.WINDOW);
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+//		driver.switchTo().newWindow(WindowType.WINDOW);
+		
+	}
+
+}

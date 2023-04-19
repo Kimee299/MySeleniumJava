@@ -1,0 +1,83 @@
+/**
+ * 
+ */
+package test;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+
+public class Day1 {
+	@BeforeMethod
+	public void beforeMethod() {
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+	}
+
+	@BeforeClass
+	public void beforeClass() {
+	}
+
+	@AfterClass
+	public void afterClass() {
+	}
+
+//	@BeforeTest
+//	public void beforeTest() {
+//		System.out.println("@BeforeTest Day1...");
+//	}
+
+//	@AfterTest
+//	public void afterTest() {
+//		System.out.println("@AfterTest Day1...");
+//	}
+
+//	@BeforeSuite
+//	public void beforeSuite() {
+//		System.out.println("@BeforeSuite Day1.....");
+//	}
+//
+//	@AfterSuite
+//	public void afterSuite() {
+//		System.out.println("@AfterSuite Day1.....");
+//	}
+
+	@Test 
+	public void Day1_f1() {
+		// TODO Auto-generated method stub
+		System.out.println("Day1_f1"); 
+	}
+
+	@Test(groups = {"group_Day2"}) 
+	public void Day1_f2() {
+		// TODO Auto-generated method stub
+		System.out.println("Day1_f2 group_Day2"); 
+	}
+
+	@Test(groups = {"group_Day2"})
+	public void Day1_f3_mobile() {
+		// TODO Auto-generated method stub
+		System.out.println("Day1_f3_mobile group_Day2"); 
+	}
+
+	@Test  (dependsOnMethods = {"Day1_f1","Day1_f4_web"} )
+	public void Day1_f5_Linux() {
+		// TODO Auto-generated method stub
+		System.out.println("Day1_f5_Linux"); 
+	}
+	
+	@Test (timeOut = 10)
+	public void Day1_f4_web() {
+		// TODO Auto-generated method stub
+		System.out.println("Day1_f4_web"); 
+	}
+}

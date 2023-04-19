@@ -1,0 +1,40 @@
+package basicweb;
+
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class NewDropdownUI {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		//Create a map to store  preferences 
+		System.setProperty("webdriver.chrome.driver", "E:\\sourcecode\\drivers\\chromedriver.exe");
+		Map<String, Object> prefs = new HashMap<String, Object>();
+		prefs.put("profile.default_content_setting_values.notifications", 1);
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		// set ExperimentalOption-prefs 
+		options.setExperimentalOption("prefs", prefs);
+		
+		ChromeDriver driver = new ChromeDriver(options);
+		driver.get("https://www.spicejet.com");
+		driver.manage().window().fullscreen();
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+		WebElement dropdown = 
+				driver.findElement(By.xpath("//div[@class=\"css-1dbjc4n\"]//div//div[@class=\"css-1dbjc4n r-14lw9ot r-11u4nky r-z2wwpe r-1phboty r-rs99b7 r-1loqt21 r-13awgt0 r-ymttw5 r-5njf8e r-1otgn73\"]"));
+		dropdown.click();
+		
+
+		Thread.sleep(1000);
+		driver.close();
+
+	}
+
+}

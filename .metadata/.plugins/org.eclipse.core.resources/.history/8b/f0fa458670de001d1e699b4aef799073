@@ -1,0 +1,21 @@
+package rahulshettyacademy.pagepbjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+import AbstractComponents.AbstractComponent;
+
+public class OrderPage extends AbstractComponent{
+	WebDriver driver;
+
+	public OrderPage(WebDriver driver) {
+		super(driver);
+		// initialization
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void a() {
+		
+	}	
+}

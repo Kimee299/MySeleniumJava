@@ -1,0 +1,16 @@
+package rahulshettyacademy.pagepbjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LandingPage {
+	//contructor
+	WebDriver driver;
+	public LandingPage() {
+		this.driver = driver;
+	}
+	
+	WebElement mail = driver.findElement(By.id("userEmail"));
+	WebElement pw = driver.findElement(By.id("userPassword"));
+}

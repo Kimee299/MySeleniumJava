@@ -1,0 +1,103 @@
+package rahulshettyacademy;
+
+import org.testng.AssertJUnit;
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.stream.Stream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.locators.RelativeLocator;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import rahulshettyacademy.pagepbjects.LandingPage;
+import rahulshettyacademy.pagepbjects.ProductCatalogue;
+
+public class StandAloneTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+//		ChromeDriver driver = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver(options);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://rahulshettyacademy.com/client");
+		driver.manage().window().maximize();
+
+		// login step
+		LandingPage landingPage = new LandingPage(driver);
+		landingPage.loginApp("testting1kp@gmail.com", "@Az1234567");
+
+		String buy_pr = "ADIDAS ORIGINAL";
+		
+		// get list all products
+		ProductCatalogue listprod = new ProductCatalogue(driver);
+		List<WebElement> products = listprod.getProductList();
+		WebElement prod = listprod.getProdByName(buy_pr);
+		prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+
+		//add to cart
+		listprod.addToCart();
+
+		// click all button add-to-cart
+//		driver.findElements(By.xpath("//button[text()=' Add To Cart']")).forEach(a -> {
+//			try {
+//				Thread.sleep(3000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			a.click();});
+		
+		//click checkout
+		List<WebElement> cart_pr = driver.findElements(By.xpath("//*[@class='cartSection']/h3"));
+		AssertJUnit.assertTrue(cart_pr.stream().anyMatch(a -> a.getText().equalsIgnoreCase(buy_pr)));
+		driver.findElement(By.xpath("//button[normalize-space()=\"Checkout\"]")).click();
+		
+		
+		//input info in order page
+		Actions a = new Actions(driver);
+		WebElement country  = driver.findElement(By.xpath("//input[@placeholder=\"Select Country\"]"));
+		country.sendKeys("Vietnam");
+		
+		WebElement cardNo  = driver.findElement(By.xpath("//input[@value=\"4542 9931 9292 2293\"]"));
+		cardNo.clear();
+		cardNo.sendKeys("1234 5678 12345 5678");
+		
+//		driver.findElement(By.xpath("//span[@class=\"ng-star-inserted\"]")).click();
+		
+		WebElement cvv  = driver.findElement(By.xpath("//div[@class=\"payment__cc\"]//div[2]//input[1]"));
+		cvv.sendKeys("242");
+		
+		WebElement cardName  = driver.findElement(By.xpath("(//input[@type='text'])[3]"));
+		cardName.sendKeys("test name");
+		
+		WebElement cardYear  = driver.findElement(By.xpath("(//select[@class='input ddl'])[1]"));
+		Select optYear = new Select(cardYear);
+		optYear.selectByVisibleText("12");
+		
+		WebElement cardDate  = driver.findElement(RelativeLocator.with(By.tagName("select")).near(cardYear));
+		Select optDate = new Select(cardDate);
+		optDate.selectByVisibleText("31");
+		
+		
+		//submit order
+		WebElement order_btn  = driver.findElement(By.xpath("//a[normalize-space()=\"Place Order\"]"));
+//		order_btn.click();
+		
+//		driver.quit();
+	}
+
+}
